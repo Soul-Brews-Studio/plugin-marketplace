@@ -1,0 +1,31 @@
+name: Sync Skills to Commands
+
+on:
+  push:
+    paths:
+      - 'oracle-skills/skills/**'
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  sync-commands:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Run skills-to-commands script
+        run: |
+          chmod +x oracle-skills/scripts/skills-to-commands.sh
+          bash oracle-skills/scripts/skills-to-commands.sh
+      
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add oracle-skills/commands/
+          git diff --staged --quiet || git commit -m "chore: auto-sync commands from skills"
+          git push
