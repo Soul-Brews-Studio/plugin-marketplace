@@ -9,8 +9,8 @@ MCP servers and skills for Oracle philosophy.
 /plugin marketplace add Soul-Brews-Studio/mcp-marketplace
 
 # Install plugins
-/plugin install oracle-skills@soul-brews-mcp
-/plugin install ralph-local@soul-brews-mcp
+/plugin install oracle-skills@soul-brews-studio-mcp
+/plugin install ralph-local@soul-brews-studio-mcp
 ```
 
 ## Plugins
