@@ -1,0 +1,197 @@
+#!/bin/bash
+
+# Ralph Loop Setup Script
+# Creates state file for in-session Ralph loop
+# Now with session isolation - each session has its own state file
+
+set -euo pipefail
+
+# Determine state directory (plugin-relative for session isolation)
+if [[ -n "${CLAUDE_PLUGIN_ROOT:-}" ]]; then
+  STATE_DIR="$CLAUDE_PLUGIN_ROOT/state"
+else
+  # Fallback: derive from script location
+  STATE_DIR="$(dirname "$(dirname "$0")")/state"
+fi
+
+# Get session ID (required for session isolation)
+if [[ -z "${CLAUDE_SESSION_ID:-}" ]]; then
+  echo "❌ Error: CLAUDE_SESSION_ID not available" >&2
+  echo "   Ralph loop requires session isolation to work correctly." >&2
+  echo "   This usually means the SessionStart hook didn't run." >&2
+  echo "" >&2
+  echo "   Try:" >&2
+  echo "   1. Restart Claude Code" >&2
+  echo "   2. Check plugin is properly installed" >&2
+  exit 1
+fi
+
+# Parse arguments
+PROMPT_PARTS=()
+MAX_ITERATIONS=0
+COMPLETION_PROMISE="null"
+
+# Parse options and positional arguments
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    -h|--help)
+      cat << 'HELP_EOF'
+Ralph Loop - Interactive self-referential development loop
+
+USAGE:
+  /ralph-loop [PROMPT...] [OPTIONS]
+
+ARGUMENTS:
+  PROMPT...    Initial prompt to start the loop (can be multiple words without quotes)
+
+OPTIONS:
+  --max-iterations <n>           Maximum iterations before auto-stop (default: unlimited)
+  --completion-promise '<text>'  Promise phrase (USE QUOTES for multi-word)
+  -h, --help                     Show this help message
+
+DESCRIPTION:
+  Starts a Ralph Wiggum loop in your CURRENT session. The stop hook prevents
+  exit and feeds your output back as input until completion or iteration limit.
+
+  To signal completion, you must output: <promise>YOUR_PHRASE</promise>
+
+  Use this for:
+  - Interactive iteration where you want to see progress
+  - Tasks requiring self-correction and refinement
+  - Learning how Ralph works
+
+EXAMPLES:
+  /ralph-loop Build a todo API --completion-promise 'DONE' --max-iterations 20
+  /ralph-loop --max-iterations 10 Fix the auth bug
+  /ralph-loop Refactor cache layer  (runs forever)
+  /ralph-loop --completion-promise 'TASK COMPLETE' Create a REST API
+
+STOPPING:
+  Only by reaching --max-iterations or detecting --completion-promise
+  No manual stop - Ralph runs infinitely by default!
+
+MONITORING:
+  State files are stored in the plugin's state/ directory with session ID.
+  The exact path is shown when the loop starts.
+HELP_EOF
+      exit 0
+      ;;
+    --max-iterations)
+      if [[ -z "${2:-}" ]]; then
+        echo "❌ Error: --max-iterations requires a number argument" >&2
+        echo "" >&2
+        echo "   Valid examples:" >&2
+        echo "     --max-iterations 10" >&2
+        echo "     --max-iterations 50" >&2
+        echo "     --max-iterations 0  (unlimited)" >&2
+        echo "" >&2
+        echo "   You provided: --max-iterations (with no number)" >&2
+        exit 1
+      fi
+      if ! [[ "$2" =~ ^[0-9]+$ ]]; then
+        echo "❌ Error: --max-iterations must be a positive integer or 0, got: $2" >&2
+        echo "" >&2
+        echo "   Valid examples:" >&2
+        echo "     --max-iterations 10" >&2
+        echo "     --max-iterations 50" >&2
+        echo "     --max-iterations 0  (unlimited)" >&2
+        echo "" >&2
+        echo "   Invalid: decimals (10.5), negative numbers (-5), text" >&2
+        exit 1
+      fi
+      MAX_ITERATIONS="$2"
+      shift 2
+      ;;
+    --completion-promise)
+      if [[ -z "${2:-}" ]]; then
+        echo "❌ Error: --completion-promise requires a text argument" >&2
+        echo "" >&2
+        echo "   Valid examples:" >&2
+        echo "     --completion-promise 'DONE'" >&2
+        echo "     --completion-promise 'TASK COMPLETE'" >&2
+        echo "     --completion-promise 'All tests passing'" >&2
+        echo "" >&2
+        echo "   You provided: --completion-promise (with no text)" >&2
+        echo "" >&2
+        echo "   Note: Multi-word promises must be quoted!" >&2
+        exit 1
+      fi
+      COMPLETION_PROMISE="$2"
+      shift 2
+      ;;
+    *)
+      # Non-option argument - collect all as prompt parts
+      PROMPT_PARTS+=("$1")
+      shift
+      ;;
+  esac
+done
+
+# Join all prompt parts with spaces
+PROMPT="${PROMPT_PARTS[*]}"
+
+# Validate prompt is non-empty
+if [[ -z "$PROMPT" ]]; then
+  echo "❌ Error: No prompt provided" >&2
+  echo "" >&2
+  echo "   Ralph needs a task description to work on." >&2
+  echo "" >&2
+  echo "   Examples:" >&2
+  echo "     /ralph-loop Build a REST API for todos" >&2
+  echo "     /ralph-loop Fix the auth bug --max-iterations 20" >&2
+  echo "     /ralph-loop --completion-promise 'DONE' Refactor code" >&2
+  echo "" >&2
+  echo "   For all options: /ralph-loop --help" >&2
+  exit 1
+fi
+
+# Create state directory and file
+mkdir -p "$STATE_DIR"
+RALPH_STATE_FILE="$STATE_DIR/${CLAUDE_SESSION_ID}.md"
+
+# Quote completion promise for YAML if it contains special chars or is not null
+if [[ -n "$COMPLETION_PROMISE" ]] && [[ "$COMPLETION_PROMISE" != "null" ]]; then
+  COMPLETION_PROMISE_YAML="\"$COMPLETION_PROMISE\""
+else
+  COMPLETION_PROMISE_YAML="null"
+fi
+
+cat > "$RALPH_STATE_FILE" <<EOF
+---
+active: true
+iteration: 1
+max_iterations: $MAX_ITERATIONS
+completion_promise: $COMPLETION_PROMISE_YAML
+started_at: "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+session_id: "$CLAUDE_SESSION_ID"
+---
+
+$PROMPT
+EOF
+
+# Output setup message
+cat <<EOF
+🔄 Ralph loop activated in this session!
+
+Iteration: 1
+Max iterations: $(if [[ $MAX_ITERATIONS -gt 0 ]]; then echo $MAX_ITERATIONS; else echo "unlimited"; fi)
+Completion promise: $(if [[ "$COMPLETION_PROMISE" != "null" ]]; then echo "${COMPLETION_PROMISE//\"/} (ONLY output when TRUE - do not lie!)"; else echo "none (runs forever)"; fi)
+Session ID: ${CLAUDE_SESSION_ID:0:8}...
+
+The stop hook is now active. When you try to exit, the SAME PROMPT will be
+fed back to you. You'll see your previous work in files, creating a
+self-referential loop where you iteratively improve on the same task.
+
+To monitor: head -10 "$RALPH_STATE_FILE"
+
+⚠️  WARNING: This loop cannot be stopped manually! It will run infinitely
+    unless you set --max-iterations or --completion-promise.
+
+🔄
+EOF
+
+# Output the initial prompt if provided
+if [[ -n "$PROMPT" ]]; then
+  echo ""
+  echo "$PROMPT"
+fi
