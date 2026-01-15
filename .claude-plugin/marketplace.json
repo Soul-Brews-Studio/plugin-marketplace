@@ -14,19 +14,19 @@
       "description": "13 Oracle skills for Claude Code workflows",
       "strict": false,
       "skills": [
-        "./oracle-skills/skills/trace",
-        "./oracle-skills/skills/recap",
-        "./oracle-skills/skills/rrr",
-        "./oracle-skills/skills/learn",
-        "./oracle-skills/skills/project",
-        "./oracle-skills/skills/where-we-are",
-        "./oracle-skills/skills/forward",
-        "./oracle-skills/skills/context-finder",
-        "./oracle-skills/skills/feel",
-        "./oracle-skills/skills/fyi",
-        "./oracle-skills/skills/standup",
-        "./oracle-skills/skills/schedule",
-        "./oracle-skills/skills/watch"
+        "./skills/trace",
+        "./skills/recap",
+        "./skills/rrr",
+        "./skills/learn",
+        "./skills/project",
+        "./skills/where-we-are",
+        "./skills/forward",
+        "./skills/context-finder",
+        "./skills/feel",
+        "./skills/fyi",
+        "./skills/standup",
+        "./skills/schedule",
+        "./skills/watch"
       ]
     },
     {
