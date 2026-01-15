@@ -2,13 +2,13 @@
 
 MCP servers and skills for Oracle philosophy.
 
-> **Version**: 1.1.0 | **Updated**: 2026-01-15
+> **Version**: 1.3.1 | **Updated**: 2026-01-15
 
 ## Plugins
 
 | Plugin | Version | Description |
 |--------|---------|-------------|
-| oracle-skills | 1.1.0 | 13 Oracle skills |
+| oracle-skills | 1.3.1 | 13 Oracle skills |
 | ralph-soulbrews | 1.0.0 | Self-referential AI loops |
 
 ## Installation
@@ -33,7 +33,7 @@ MCP servers and skills for Oracle philosophy.
 /plugin marketplace remove soul-brews-studio-mcp
 ```
 
-## oracle-skills (v1.1.0)
+## oracle-skills (v1.3.1)
 
 13 essential Claude Code skills:
 
@@ -73,7 +73,7 @@ See [Oracle Philosophy](oracle-skills/docs/philosophy/ORACLE-PHILOSOPHY.md)
 
 | Date | Version | Changes |
 |------|---------|---------|
-| 2026-01-15 | 1.1.0 | Current release |
+| 2026-01-15 | 1.3.1 | Current release |
 
 ## License
 
