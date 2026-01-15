@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - '.claude-plugin/marketplace.json'
-      - 'oracle-skills/.claude-plugin/plugin.json'
+      - 'oracle-skills/.claude-plugin/marketplace.json'
       - 'ralph-soulbrews/.claude-plugin/plugin.json'
     branches:
       - main
@@ -23,7 +23,7 @@ jobs:
         id: versions
         run: |
           MARKETPLACE_VERSION=$(jq -r '.version' .claude-plugin/marketplace.json)
-          ORACLE_VERSION=$(jq -r '.version' oracle-skills/.claude-plugin/plugin.json)
+          ORACLE_VERSION=$(jq -r '.version' oracle-skills/.claude-plugin/marketplace.json)
           RALPH_VERSION=$(jq -r '.version' ralph-soulbrews/.claude-plugin/plugin.json)
           DATE=$(date '+%Y-%m-%d')
           
