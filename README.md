@@ -1,39 +1,39 @@
-# Soul Brews MCP Marketplace
+# Soul Brews Plugin Marketplace
 
-MCP servers and skills for Oracle philosophy.
+Claude Code plugins and skills for Oracle philosophy.
 
-> **Version**: 1.3.1 | **Updated**: 2026-01-15
+> **Version**: 1.3.2 | **Updated**: 2026-01-15 16:27 UTC
 
 ## Plugins
 
-| Plugin | Version | Description |
-|--------|---------|-------------|
-| oracle-skills | 1.3.1 | 13 Oracle skills |
-| ralph-soulbrews | 1.0.0 | Self-referential AI loops |
+| Plugin | Version | Updated | Description |
+|--------|---------|---------|-------------|
+| oracle-skills | 1.3.2 | 2026-01-15 16:27 UTC | 13 Oracle skills |
+| ralph-soulbrews | 1.0.0 | 2026-01-15 16:27 UTC | Self-referential AI loops |
 
 ## Installation
 
 ```bash
 # Add marketplace (once)
-/plugin marketplace add Soul-Brews-Studio/mcp-marketplace
+claude plugin marketplace add Soul-Brews-Studio/plugin-marketplace
 
 # Install plugins
-/plugin install oracle-skills@soul-brews-studio-mcp
-/plugin install ralph-soulbrews@soul-brews-studio-mcp
+claude plugin install oracle-skills@soul-brews-plugin
+claude plugin install ralph-soulbrews@soul-brews-plugin
 ```
 
 ## Uninstall
 
 ```bash
 # Remove plugins
-/plugin uninstall oracle-skills@soul-brews-studio-mcp
-/plugin uninstall ralph-soulbrews@soul-brews-studio-mcp
+claude plugin uninstall oracle-skills@soul-brews-plugin
+claude plugin uninstall ralph-soulbrews@soul-brews-plugin
 
 # Remove marketplace (optional)
-/plugin marketplace remove soul-brews-studio-mcp
+claude plugin marketplace remove soul-brews-plugin
 ```
 
-## oracle-skills (v1.3.1)
+## oracle-skills (v1.3.2)
 
 13 essential Claude Code skills:
 
@@ -73,7 +73,7 @@ See [Oracle Philosophy](oracle-skills/docs/philosophy/ORACLE-PHILOSOPHY.md)
 
 | Date | Version | Changes |
 |------|---------|---------|
-| 2026-01-15 | 1.3.1 | Current release |
+| 2026-01-15 | 1.3.2 | Current release |
 
 ## License
 
