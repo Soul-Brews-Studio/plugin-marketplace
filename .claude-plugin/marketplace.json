@@ -1,6 +1,6 @@
 {
   "name": "soul-brews-studio-mcp",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "owner": { "name": "Soul Brews Studio" },
   "metadata": {
     "description": "MCP servers and skills for Oracle philosophy"
