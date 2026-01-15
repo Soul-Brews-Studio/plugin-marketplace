@@ -4,7 +4,6 @@ description: Daily standup check - pending tasks, appointments, recent progress.
 
 **EXECUTE NOW:**
 
-
 # /standup - Daily Standup
 
 Quick check: pending tasks, appointments, recent progress.
@@ -14,14 +13,14 @@ Quick check: pending tasks, appointments, recent progress.
 date "+🕐 %H:%M (%A %d %B %Y)"
 ```
 
-
+---
 ## Usage
 
 ```
 /standup          # Full standup check
 ```
 
-
+---
 ## Action
 
 Gather info from multiple sources:
@@ -57,7 +56,7 @@ git log --since="24 hours ago" --format="%h %s" | head -10
 ls -t ψ/memory/retrospectives/**/*.md 2>/dev/null | head -1
 ```
 
-
+---
 ## Output Format
 
 ```markdown
@@ -81,15 +80,16 @@ ls -t ψ/memory/retrospectives/**/*.md 2>/dev/null | head -1
 ### Next Action
 - [suggest based on priorities]
 
+---
 💡 `/schedule` to see full calendar
 ```
 
-
+---
 ## Related
 
 - `/schedule` - Full calendar view
 - `/wip` - Work in progress
 - `/recap` - Full context summary
 
-
+---
 ARGUMENTS: $ARGUMENTS

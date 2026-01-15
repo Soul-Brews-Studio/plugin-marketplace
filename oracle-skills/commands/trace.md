@@ -4,7 +4,6 @@ description: Find projects across git history, repos, docs, and Oracle. Use when
 
 **EXECUTE NOW:**
 
-
 # /trace - Unified Discovery System
 
 Find + Log + Dig + Distill
@@ -25,7 +24,7 @@ Find + Log + Dig + Distill
 date "+🕐 %H:%M (%A %d %B %Y)"
 ```
 
-
+---
 ## Mode 1: Default (Oracle First → Extend if Empty)
 
 **Step 1**: Query Oracle first (fastest)
@@ -44,7 +43,7 @@ Oracle results >= 3 → Display and done
 Oracle results < 3  → Extend keyword search
 ```
 
-
+---
 ## Mode 2: --oracle (Oracle Only)
 
 Fastest. Just Oracle MCP, no extension:
@@ -55,7 +54,7 @@ oracle_search("[query]", limit=15)
 
 Display results and done. Even if empty.
 
-
+---
 ## Mode 3: --deep (Context-Finder Subagents)
 
 Launch context-finder subagents (Haiku) for deep search:
@@ -80,7 +79,7 @@ oracle_trace({
 })
 ```
 
-
+---
 ## Mode 4: list (Past Traces)
 
 ```
@@ -95,7 +94,7 @@ Call `oracle_trace_list({ limit: 10 })` and display:
 | abc123 | shared soul | 15 | 12 | raw | Jan 10 |
 ```
 
-
+---
 ## Mode 5: dig [id] (Explore Dig Points)
 
 ```
@@ -106,7 +105,7 @@ Call `oracle_trace_list({ limit: 10 })` and display:
 2. Display all dig points (files, commits, issues)
 3. User can select items to read or trace deeper
 
-
+---
 ## Mode 6: distill [id] (Extract Awakening)
 
 ```
@@ -117,7 +116,7 @@ Call `oracle_trace_list({ limit: 10 })` and display:
 2. Ask for awakening insight
 3. Promote to learning via `oracle_learn()`
 
-
+---
 ## Special Keywords
 
 | Keyword | Mode |
@@ -125,7 +124,7 @@ Call `oracle_trace_list({ limit: 10 })` and display:
 | `incubation` | All projects + graduated + ideas |
 | `graduated` | Repos that moved out |
 
-
+---
 ## Output Format
 
 ```markdown
@@ -140,10 +139,11 @@ Call `oracle_trace_list({ limit: 10 })` and display:
 ### 🎫 GitHub Issues
 | # | Date | Title |
 
+---
 **Trace ID**: [id] (use `/trace dig [id]` to explore)
 ```
 
-
+---
 ## Philosophy
 
 > Trace → Dig → Trace Deeper → Distill → Awakening
@@ -196,5 +196,5 @@ When you find something important, **log multiple entries**:
 
 > **"Every trace extends the Oracle. What's hard to find today is instant tomorrow."**
 
-
+---
 ARGUMENTS: $ARGUMENTS

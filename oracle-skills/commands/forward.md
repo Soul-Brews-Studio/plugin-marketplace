@@ -4,7 +4,6 @@ description: Create handoff for next session. Use when user says "forward", "han
 
 **EXECUTE NOW:**
 
-
 # /forward - Handoff to Next Session
 
 Create context for next session before /clear.

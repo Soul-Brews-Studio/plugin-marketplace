@@ -4,7 +4,6 @@ description: Learn from YouTube videos via Gemini transcription. Use when user s
 
 **EXECUTE NOW:**
 
-
 # /watch - YouTube → Gemini → Oracle Knowledge
 
 Learn from YouTube videos by sending to Gemini for transcription, then indexing to Oracle.
@@ -81,7 +80,9 @@ I have YouTube auto-captions for this video. Please:
 Video: [YOUTUBE_URL]
 
 Auto-captions (may have errors):
+---
 [CC_TEXT - first 2000 chars or summary]
+---
 ```
 
 **If HAS_CC = false (full transcription mode):**
@@ -180,9 +181,11 @@ oracle_learn({
 **Always save the Gemini conversation URL** in the learning file frontmatter:
 
 ```yaml
+---
 title: [Video Title]
 source: YouTube - [Creator] (youtube_url)
 gemini_conversation: https://gemini.google.com/app/[conversation_id]
+---
 ```
 
 **Why**:

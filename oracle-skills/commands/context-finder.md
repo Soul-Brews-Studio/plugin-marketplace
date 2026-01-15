@@ -4,7 +4,6 @@ description: Fast search through git history, retrospectives, issues, and codeba
 
 **EXECUTE NOW:**
 
-
 # /context-finder - Search History & Context
 
 Fast search using parallel Haiku subagents.

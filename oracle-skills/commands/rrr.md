@@ -4,7 +4,6 @@ description: Create session retrospective with AI diary and lessons learned. Use
 
 **EXECUTE NOW:**
 
-
 # RRR - Session Retrospective
 
 Execute the `rrr` workflow using subagents for efficiency.

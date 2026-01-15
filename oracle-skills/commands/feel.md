@@ -4,7 +4,6 @@ description: Log emotions with optional structure. Use when user says "feel", "f
 
 **EXECUTE NOW:**
 
-
 # /feel - Smart Emotion Log
 
 Log emotions + optional structured data for pattern tracking.
@@ -14,7 +13,7 @@ Log emotions + optional structured data for pattern tracking.
 date "+🕐 %H:%M (%A %d %B %Y)"
 ```
 
-
+---
 ## Usage
 
 ```
@@ -33,7 +32,7 @@ date "+🕐 %H:%M (%A %d %B %Y)"
 /feel panic                 # → suggests /snapshot
 ```
 
-
+---
 ## Behavior Matrix
 
 | Input | AI Understands | Action |
@@ -43,7 +42,7 @@ date "+🕐 %H:%M (%A %d %B %Y)"
 | `/feel happy/proud` | Good moment | Suggest `/snapshot` to capture |
 | `/feel [other]` | Just sharing | Log to diary |
 
-
+---
 ## Mode 1: No Arguments → List
 
 Read `ψ/memory/logs/feelings/` and show summary:
@@ -59,7 +58,7 @@ Read `ψ/memory/logs/feelings/` and show summary:
 **Pattern**: Energy dips after 22:00
 ```
 
-
+---
 ## Mode 2: With Arguments → Log
 
 ### Step 1: Parse input
@@ -100,10 +99,11 @@ Example:
 **Trigger**: late-night
 **Time**: 22:33
 
+---
 Logged to ψ/memory/logs/feels.log
 ```
 
-
+---
 ## Energy Visualization
 
 | Level | Bar | Meaning |
@@ -114,7 +114,7 @@ Logged to ψ/memory/logs/feels.log
 | 4 | ▓▓▓▓▓▓▓░░░ | Good |
 | 5 | ▓▓▓▓▓▓▓▓▓▓ | Energized |
 
-
+---
 ## Philosophy
 
 > "Rest is also data."
@@ -124,5 +124,5 @@ Tracking how you feel reveals patterns:
 - What triggers energy drops?
 - Correlation with work hours?
 
-
+---
 ARGUMENTS: $ARGUMENTS

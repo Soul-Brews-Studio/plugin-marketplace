@@ -4,7 +4,6 @@ description: Clone and track external repos. Use when user shares GitHub URL to 
 
 **EXECUTE NOW:**
 
-
 # project-manager
 
 Track and manage external repos: Learn (study) | Incubate (develop)

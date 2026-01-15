@@ -4,7 +4,6 @@ description: Query schedule.md using DuckDB markdown extension. Use when user sa
 
 **EXECUTE NOW:**
 
-
 # /schedule - Query Schedule with DuckDB
 
 Query schedule.md using DuckDB markdown extension for fast, structured access.

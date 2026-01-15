@@ -4,7 +4,6 @@ description: Session awareness - what we're doing now. Use when user asks "now",
 
 **EXECUTE NOW:**
 
-
 # /where-we-are - Session Awareness
 
 AI buddy confirms current session state with human.
@@ -41,6 +40,7 @@ AI buddy confirms current session state with human.
 
 **💭 My Read**: [1-2 sentences]
 
+---
 **Next?**
 ```
 
@@ -71,14 +71,14 @@ Adds bigger picture, pending, and connections.
 | HH:MM | [New unrelated topic] | **jumped** |
 | HH:MM | **Now**: [Current] | |
 
-
+---
 ### Bigger Picture
 
 **Came from**: [Last session/handoff summary - 1 line]
 **Working on**: [Current thread/goal]
 **Thread**: [Larger pattern this connects to]
 
-
+---
 ### Pending
 
 | Priority | Item | Source |
@@ -87,14 +87,14 @@ Adds bigger picture, pending, and connections.
 | 🟠 Soon | [Next up] | Tracks/discussion |
 | 🟡 Later | [Backlog] | GitHub/tracks |
 
-
+---
 ### Connections
 
 **Pattern**: [What pattern emerged]
 **Learning**: [Key insight from session]
 **Oracle**: [Related past pattern, if any]
 
-
+---
 **💭 My Read**: [2-3 sentences - deeper reflection]
 
 **Next action?**
@@ -128,7 +128,7 @@ Adds bigger picture, pending, and connections.
 > `/now` = "What time is it?"
 > `/where-we-are deep` = "Where are we in the journey?"
 
-
+---
 *"Not just the clock. The map."*
 
 ARGUMENTS: $ARGUMENTS

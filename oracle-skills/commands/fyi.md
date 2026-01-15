@@ -4,7 +4,6 @@ description: Log information for future reference. Use when user says "fyi", "re
 
 **EXECUTE NOW:**
 
-
 # /fyi - Information Log
 
 Log info for future reference, or review/distill existing info.

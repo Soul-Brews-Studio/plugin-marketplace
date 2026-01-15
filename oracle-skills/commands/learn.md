@@ -4,7 +4,6 @@ description: Explore a codebase with 3 parallel Haiku agents and create document
 
 **EXECUTE NOW:**
 
-
 # /learn - Deep Dive Learning Pattern
 
 Explore a codebase with 3 parallel Haiku agents → create organized documentation.

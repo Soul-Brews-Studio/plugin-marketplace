@@ -4,7 +4,6 @@ description: Fresh-start orientation—adaptive synthesis with bulletproof edge 
 
 **EXECUTE NOW:**
 
-
 # /recap — Fresh Start Context
 
 **Goal**: Orient yourself in <10 seconds. Fast by default, rich on demand.
@@ -16,7 +15,7 @@ description: Fresh-start orientation—adaptive synthesis with bulletproof edge 
 /recap --rich    # Full: read retro content, detailed analysis
 ```
 
-
+---
 ## FAST MODE (Default)
 
 **Run the script, then add suggestions:**
@@ -30,7 +29,7 @@ Script outputs formatted data instantly (~0.1s). Then LLM adds:
 
 **Total**: 1 bash call + LLM analysis = fast + smart
 
-
+---
 ## "What's next?" Rules
 
 | If you see... | Suggest... |
@@ -39,7 +38,7 @@ Script outputs formatted data instantly (~0.1s). Then LLM adds:
 | Focus = completed | Pick from tracks or start fresh |
 | Branch ahead | Push or create PR |
 
-
+---
 ## RICH MODE (`/recap --rich`)
 
 **Full context with retro/handoff content:**
@@ -50,14 +49,14 @@ Script outputs formatted data instantly (~0.1s). Then LLM adds:
 
 Includes: tracks, retro summary, commits, handoff details.
 
-
+---
 ## Hard Rules
 
 1. **ONE bash call** — never multiple parallel calls (adds latency)
 2. **Filenames only** — don't read retro/handoff content in fast mode
 3. **Ask, don't suggest** — "What next?" not "You should..."
 
-
+---
 **Philosophy**: Detect reality. Surface blockers. Be fast.
 
 **Version**: 6.1 (Bash script + LLM pattern)
