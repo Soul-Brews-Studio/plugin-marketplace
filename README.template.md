@@ -8,8 +8,8 @@ Claude Code plugins and skills for Oracle philosophy.
 
 | Plugin | Version | Updated | Description |
 |--------|---------|---------|-------------|
-| oracle-skills | {{ORACLE_VERSION}} | {{DATE}} | 13 Oracle skills |
-| ralph-soulbrews | {{RALPH_VERSION}} | {{DATE}} | Self-referential AI loops |
+| oracle-skills | {{ORACLE_VERSION}} | {{DATE}} {{TIME}} | 13 Oracle skills |
+| ralph-soulbrews | {{RALPH_VERSION}} | {{DATE}} {{TIME}} | Self-referential AI loops |
 
 ## Installation
 
