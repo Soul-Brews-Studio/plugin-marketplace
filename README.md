@@ -2,14 +2,14 @@
 
 Claude Code plugins and skills for Oracle philosophy.
 
-> **Version**: 1.3.2 | **Updated**: 2026-01-16 01:58 UTC
+> **Version**: 1.3.2 | **Updated**: 2026-01-16 02:11 UTC
 
 ## Plugins
 
 | Plugin | Version | Updated | Description |
 |--------|---------|---------|-------------|
-| oracle-skills | 1.4.0 | 2026-01-16 01:58 UTC | 13 Oracle skills |
-| ralph-soulbrews | 1.0.0 | 2026-01-16 01:58 UTC | Self-referential AI loops |
+| oracle-skills | 1.5.0 | 2026-01-16 02:11 UTC | 13 Oracle skills |
+| ralph-soulbrews | 1.0.0 | 2026-01-16 02:11 UTC | Self-referential AI loops |
 
 ## Installation
 
@@ -34,7 +34,7 @@ Inside Claude Code:
 /plugin marketplace remove soul-brews-plugin
 ```
 
-## oracle-skills (v1.4.0)
+## oracle-skills (v1.5.0)
 
 13 essential Claude Code skills:
 
